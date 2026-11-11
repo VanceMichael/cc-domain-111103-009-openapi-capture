@@ -1,0 +1,31 @@
+{
+  "openapi": "3.1.0",
+  "servers": [
+    {
+      "url": "https://api.invalid/drift"
+    }
+  ],
+  "paths": {
+    "/metrics": {
+      "get": {
+        "operationId": "listMetrics"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Metric": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "number"
+          },
+          "state": {
+            "type": "string",
+            "enum": ["open", "closed", "archived"]
+          }
+        }
+      }
+    }
+  }
+}

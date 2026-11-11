@@ -1,0 +1,24 @@
+{
+  "name": "notices",
+  "document": "v2.json",
+  "document_version": "v2",
+  "mapping_version": "map-2",
+  "allowed_operations": ["listNotices"],
+  "response_schemas": {
+    "listNotices": "Page"
+  },
+  "pagination": {
+    "listNotices": {
+      "kind": "next-url",
+      "pointer": "/next/url"
+    }
+  },
+  "mappings": [
+    {
+      "name": "next_cursor",
+      "operation": "listNotices",
+      "source": "/next/url",
+      "target": "next_cursor"
+    }
+  ]
+}

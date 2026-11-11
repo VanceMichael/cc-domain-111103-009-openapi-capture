@@ -1,0 +1,30 @@
+{
+  "batch_id": "1c9d1d4bcc3f8f2d",
+  "operation": "listNotices",
+  "pages": [
+    {
+      "next": {
+        "url": "https://other.invalid/next"
+      }
+    }
+  ],
+  "plan": {
+    "document_digest": "sha256:00a580f355111d14d93a56bb6fcf378d64d79011ec4e2a0ccfb468451275c16e",
+    "document_version": "v2",
+    "mapping_version": "map-2"
+  },
+  "quarantine": {
+    "detail": {
+      "reason": "分页链接 origin 未授权: https://other.invalid",
+      "url": "https://other.invalid/next"
+    },
+    "reason": "next_link_rejected"
+  },
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://api.invalid/v2/notices"
+    }
+  ],
+  "status": "quarantined"
+}

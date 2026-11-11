@@ -1,10 +1,43 @@
 {
-  "v1": {
-    "next": "cursor-2"
-  },
-  "v2": {
-    "next": {
-      "url": "https://other.invalid/next"
+  "v1": [
+    {
+      "method": "GET",
+      "url": "https://api.invalid/v1/notices",
+      "body": {
+        "next": "cursor-2"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://api.invalid/v1/notices?cursor=cursor-2",
+      "body": {}
     }
-  }
+  ],
+  "v2": [
+    {
+      "method": "GET",
+      "url": "https://api.invalid/v2/notices",
+      "body": {
+        "next": {
+          "url": "https://other.invalid/next"
+        }
+      }
+    }
+  ],
+  "v1-invalid": [
+    {
+      "method": "GET",
+      "url": "https://api.invalid/v1/notices",
+      "body": {
+        "next": "cursor-2"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "https://api.invalid/v1/notices?cursor=cursor-2",
+      "body": {
+        "next": 42
+      }
+    }
+  ]
 }

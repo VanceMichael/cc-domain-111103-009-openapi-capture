@@ -1,0 +1,122 @@
+{
+  "openapi": "3.0.3",
+  "servers": [
+    {
+      "url": "https://api.invalid/loop"
+    }
+  ],
+  "paths": {
+    "/things": {
+      "get": {
+        "operationId": "listThings",
+        "parameters": [
+          {
+            "name": "tags",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          },
+          {
+            "name": "pipes",
+            "in": "query",
+            "style": "pipeDelimited",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "spaces",
+            "in": "query",
+            "style": "spaceDelimited",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "style": "deepObject",
+            "explode": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "state": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Node"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "createThing"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Node": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "child": {
+            "$ref": "#/components/schemas/Node"
+          },
+          "parent": {
+            "$ref": "#/components/schemas/Root"
+          },
+          "audit": {
+            "$ref": "common.json#/components/schemas/Audit"
+          }
+        }
+      },
+      "Root": {
+        "type": "object",
+        "properties": {
+          "node": {
+            "$ref": "#/components/schemas/Node"
+          }
+        }
+      }
+    }
+  }
+}

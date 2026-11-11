@@ -1,0 +1,27 @@
+{
+  "batch_id": "29a7432e6f8c905e",
+  "operation": "listNotices",
+  "pages": [
+    {
+      "next": "cursor-2"
+    },
+    {}
+  ],
+  "plan": {
+    "document_digest": "sha256:1cfc67f3a0f7a62dac842b96f70b2ec4e621eaad45c61075dcce908eb7bcd8de",
+    "document_version": "v1",
+    "mapping_version": "map-1"
+  },
+  "quarantine": null,
+  "requests": [
+    {
+      "method": "GET",
+      "url": "https://api.invalid/v1/notices"
+    },
+    {
+      "method": "GET",
+      "url": "https://api.invalid/v1/notices?cursor=cursor-2"
+    }
+  ],
+  "status": "completed"
+}
