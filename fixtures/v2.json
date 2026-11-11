@@ -1,0 +1,35 @@
+{
+  "openapi": "3.1.0",
+  "servers": [
+    {
+      "url": "https://api.invalid/v2"
+    }
+  ],
+  "paths": {
+    "/notices": {
+      "get": {
+        "operationId": "listNotices"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Page": {
+        "type": "object",
+        "properties": {
+          "next": {
+            "$ref": "#/components/schemas/Cursor"
+          }
+        }
+      },
+      "Cursor": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
